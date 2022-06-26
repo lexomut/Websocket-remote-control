@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node --esm ./index.ts",
+    "start:dev": "nodemon ./index.ts --signal SIGHUP",
+    "start:prod": "tsc && node ./build/index.js",
+    "lint": "eslint src --ext .ts,.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,11 +21,18 @@
   },
   "homepage": "https://github.com/lexomut/Websocket-remote-control#readme",
   "devDependencies": {
-    "nodemon": "^2.0.18",
     "@types/node": "^18.0.0",
+    "@types/ws": "^8.5.3",
     "eslint": "^8.18.0",
+    "nodemon": "^2.0.18",
     "supertest": "^6.2.3",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.3"
+  },
+  "dependencies": {
+    "@jimp/types": "^0.16.1",
+    "jimp": "^0.16.1",
+    "robotjs": "^0.6.0",
+    "ws": "^8.8.0"
   }
 }
